@@ -424,7 +424,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
     AFURLSessionManagerTaskDelegate *delegate = [AFURLSessionManagerTaskDelegate delegateForManager:self completionHandler:completionHandler];
     [self setDelegate:delegate forTask:dataTask];
 
-    [dataTask addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:AFTaskStateChangedContext];
+    //[dataTask addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:AFTaskStateChangedContext];
 
     return dataTask;
 }
@@ -484,7 +484,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
 
     [self setDelegate:delegate forTask:uploadTask];
 
-    [uploadTask addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:AFTaskStateChangedContext];
+    //[uploadTask addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:AFTaskStateChangedContext];
     
     return uploadTask;
 }
@@ -535,7 +535,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
 
     [self setDelegate:delegate forTask:downloadTask];
 
-    [downloadTask addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:AFTaskStateChangedContext];
+    //[downloadTask addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:AFTaskStateChangedContext];
 
     return downloadTask;
 }
@@ -740,9 +740,9 @@ didCompleteWithError:(NSError *)error
 
     [self removeDelegateForTask:task];
     
-    @try {
-        [task removeObserver:self forKeyPath:@"state" context:AFTaskStateChangedContext];
-    } @catch (NSException *exception) {}
+//    @try {
+//        [task removeObserver:self forKeyPath:@"state" context:AFTaskStateChangedContext];
+//    } @catch (NSException *exception) {}
 }
 
 #pragma mark - NSURLSessionDataDelegate
